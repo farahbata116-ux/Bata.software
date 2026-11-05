@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101020">
+<meta name="description" content="BATA Software — Independent software development, digital solutions and practical business applications.">
+<title>BATA Software | Software Without Limits</title>
+
+<style>
+:root {
+  --bg:#101020;
+  --surface:#19192d;
+  --surface2:#22223a;
+  --gold:#d8c46b;
+  --purple:#8264df;
+  --white:#f7f7fc;
+  --muted:#a6a6bc;
+  --border:#34344c;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.7;
+}
+a {color:inherit;text-decoration:none}
+button {font:inherit}
+.container {width:min(1120px,90%);margin:auto}
+
+header {
+  position:sticky;top:0;z-index:100;
+  background:rgba(16,16,32,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.nav {
+  min-height:76px;
+  display:flex;align-items:center;
+  justify-content:space-between;
+}
+.brand {
+  display:flex;align-items:center;gap:12px;
+  font-size:22px;font-weight:800;letter-spacing:1px;
+}
+.logo {
+  width:43px;height:43px;border:2px solid var(--gold);
+  border-radius:12px;display:grid;place-items:center;
+  color:var(--gold);font-size:25px;font-weight:bold;
+}
+.brand span {color:var(--gold)}
+.navlinks {display:flex;align-items:center;gap:27px}
+.navlinks a {font-size:14px;color:var(--muted)}
+.navlinks a:hover {color:var(--gold)}
+.menu {
+  display:none;background:transparent;
+  color:white;border:1px solid var(--border);
+  padding:8px 12px;border-radius:8px;
+}
+
+.hero {
+  padding:105px 0 100px;
+  background:
+  radial-gradient(ellipse at 85% 20%,#49317b55,transparent 45%),
+  radial-gradient(ellipse at 5% 80%,#b39a3520,transparent 40%);
+}
+.hero-grid {
+  display:grid;grid-template-columns:1.3fr .7fr;
+  gap:55px;align-items:center;
+}
+.eyebrow {
+  color:var(--gold);font-size:12px;
+  letter-spacing:3px;font-weight:bold;
+  text-transform:uppercase;
+}
+h1 {
+  font-size:clamp(43px,7vw,76px);
+  line-height:1.08;margin:22px 0;
+  letter-spacing:-2px;
+}
+h1 span {color:var(--gold)}
+.hero p {color:var(--muted);max-width:590px;font-size:17px}
+.actions {display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn {
+  padding:13px 22px;border-radius:8px;
+  font-weight:bold;display:inline-block;
+  border:1px solid var(--gold);
+  transition:.2s;
+}
+.btn-primary {background:var(--gold);color:#171624}
+.btn-outline {color:var(--gold)}
+.btn:hover {transform:translateY(-3px);opacity:.9}
+
+.hero-panel {
+  background:linear-gradient(145deg,#252440,#171729);
+  border:1px solid #4b426d;
+  border-radius:22px;padding:30px;
+  box-shadow:0 20px 70px #0005;
+}
+.panel-top {display:flex;justify-content:space-between;align-items:center}
+.panel-dot {width:9px;height:9px;border-radius:50%;background:#8cce9c;display:inline-block}
+.panel-title {font-size:13px;color:var(--muted)}
+.panel-logo {
+  margin:35px auto;text-align:center;
+  font-size:85px;font-weight:900;
+  color:var(--gold);
+  text-shadow:0 0 35px #d8c46b44;
+}
+.panel-logo small {display:block;font-size:13px;letter-spacing:5px}
+.panel-line {height:1px;background:var(--border);margin:18px 0}
+.panel-bottom {font-size:13px;color:var(--muted);text-align:center}
+
+section {padding:85px 0}
+.section-head {margin-bottom:38px}
+.section-head h2 {font-size:clamp(29px,4vw,42px);margin:10px 0}
+.section-head p {color:var(--muted);max-width:650px}
+.section-tag {color:var(--gold);font-size:12px;letter-spacing:3px;font-weight:bold}
+
+.products {background:#141426}
+.grid {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:25px;border-radius:14px;
+  transition:.25s;
+}
+.card:hover {transform:translateY(-5px);border-color:var(--gold)}
+.card-icon {
+  width:49px;height:49px;
+  display:grid;place-items:center;
+  border-radius:12px;background:#30284c;
+  color:var(--gold);font-size:24px;
+  margin-bottom:20px;
+}
+.card h3 {font-size:20px;margin-bottom:10px}
+.card p {color:var(--muted);font-size:14px}
+.status {
+  display:inline-block;margin-top:20px;
+  border:1px solid #65553b;
+  color:var(--gold);border-radius:20px;
+  padding:4px 11px;font-size:11px;
+}
+
+.about-grid {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:55px;align-items:center;
+}
+.about-box {
+  background:linear-gradient(145deg,#272443,#19192b);
+  border:1px solid var(--border);
+  border-radius:18px;padding:30px;
+}
+.about-box h3 {color:var(--gold);margin-bottom:15px}
+.about-box p {color:var(--muted);font-size:14px}
+.features {list-style:none;margin-top:20px}
+.features li {padding:9px 0;border-bottom:1px solid var(--border)}
+.features li::before {content:"✓";color:var(--gold);margin-right:12px}
+
+.services {background:#141426}
+.service-grid {
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+}
+.service {
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:22px;border-radius:12px;
+}
+.service h3 {font-size:17px;margin-bottom:8px}
+.service p {font-size:14px;color:var(--muted)}
+
+.cta {
+  text-align:center;
+  padding:65px 25px;
+  border:1px solid #51436c;
+  border-radius:20px;
+  background:radial-gradient(ellipse at center,#38265d,#19192c 75%);
+}
+.cta h2 {font-size:clamp(29px,4vw,42px);margin-bottom:12px}
+.cta p {color:var(--muted);margin-bottom:25px}
+
+footer {
+  border-top:1px solid var(--border);
+  padding:35px 0;
+  color:var(--muted);font-size:13px;
+}
+.footer-content {
+  display:flex;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.footer-links {display:flex;gap:20px;flex-wrap:wrap}
+footer a:hover {color:var(--gold)}
+.disclaimer {margin-top:15px;font-size:12px;max-width:750px}
+
+@media(max-width:760px) {
+  .menu {display:block}
+  .navlinks {
+    display:none;position:absolute;top:76px;
+    left:0;width:100%;padding:20px;
+    background:#171729;
+    flex-direction:column;align-items:flex-start;
+    border-bottom:1px solid var(--border);
+  }
+  .navlinks.open {display:flex}
+  .hero {padding:70px 0}
+  .hero-grid,.about-grid {grid-template-columns:1fr}
+  .grid {grid-template-columns:1fr}
+  .service-grid {grid-template-columns:1fr}
+  section {padding:65px 0}
+  .hero-panel {max-width:450px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <div class="logo">B+</div>
+      BATA <span>SOFTWARE</span>
+    </a>
+
+    <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Independent Software Development</div>
+      <h1>Building Software.<br><span>Creating Possibilities.</span></h1>
+      <p>
+        BATA Software is an independent software development initiative
+        focused on designing practical digital applications, business
+        systems and modern web solutions.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#products">Explore Products →</a>
+        <a class="btn btn-outline" href="#about">Discover BATA</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="panel-top">
+        <span class="panel-title">BATA SOFTWARE</span>
+        <span class="panel-dot"></span>
+      </div>
+      <div class="panel-logo">
+        B+
+        <small>SOFTWARE</small>
+      </div>
+      <div class="panel-line"></div>
+      <div class="panel-bottom">
+        Independent Development Initiative<br>
+        Digital Solutions • Software • Innovation
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">OUR PORTFOLIO</div>
+      <h2>Software & Applications</h2>
+      <p>
+        An evolving portfolio of software concepts and applications
+        developed under the BATA Software identity.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-icon">▦</div>
+        <h3>BATA Office</h3>
+        <p>
+          An office management application concept for organizing
+          administrative activities, employee records, tasks and documents.
+        </p>
+        <span class="status">Prototype</span>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">▣</div>
+        <h3>BATA Platform</h3>
+        <p>
+          A software platform direction for presenting and organizing
+          digital applications within one ecosystem.
+        </p>
+        <span class="status">In Development</span>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">⌘</div>
+        <h3>BATA Web Solutions</h3>
+        <p>
+          Web-based software projects focused on practical interfaces,
+          accessibility and responsive user experiences.
+        </p>
+        <span class="status">Development</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-tag">WHO WE ARE</div>
+      <h2 style="font-size:38px;margin:12px 0 20px">
+        About BATA Software
+      </h2>
+      <p style="color:var(--muted)">
+        BATA Software is an independent software development initiative
+        established to explore, design and develop digital applications.
+        Its focus is on practical software, professional development
+        practices and accessible technology.
+      </p>
+      <p style="color:var(--muted);margin-top:15px">
+        Our approach emphasizes building functional products,
+        documenting development and improving software through testing
+        and continuous development.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <h3>Our Development Principles</h3>
+      <p>Principles guiding the development of BATA software products.</p>
+      <ul class="features">
+        <li>Practical software development</li>
+        <li>Privacy-conscious design</li>
+        <li>Security-focused development</li>
+        <li>Responsive user experiences</li>
+        <li>Continuous improvement</li>
+        <li>Transparent project status</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">WHAT WE DEVELOP</div>
+      <h2>Software Development Areas</h2>
+      <p>Our intended areas of software development and technical work.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service">
+        <h3>01. Web Applications</h3>
+        <p>Development of browser-based applications and digital platforms.</p>
+      </div>
+      <div class="service">
+        <h3>02. Business Software</h3>
+        <p>Administrative, organizational and workflow management systems.</p>
+      </div>
+      <div class="service">
+        <h3>03. User Interface Design</h3>
+        <p>Designing clear, accessible and responsive software interfaces.</p>
+      </div>
+      <div class="service">
+        <h3>04. Software Security</h3>
+        <p>Applying security-conscious development and privacy principles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta">
+      <div class="section-tag">CONNECT WITH BATA</div>
+      <h2>Let's Build Something Useful.</h2>
+      <p>
+        Explore our development work, inspect our public repositories
+        and follow the progress of our software projects.
+      </p>
+      <a class="btn btn-primary"
+         href="https://github.com/farahbata116-ux/Bata.software"
+         target="_blank" rel="noopener noreferrer">
+        Visit GitHub Repository →
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <strong style="color:var(--gold)">BATA SOFTWARE</strong>
+        <p>Software Without Limits.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/farahbata116-ux/Bata.software"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+    <p class="disclaimer">
+      BATA Software is currently presented as an independent,
+      unregistered software development initiative. Product descriptions
+      and development statuses are indicative and do not represent
+      claims of completed commercial services or registered operations.
+    </p>
+    <p style="margin-top:20px">
+      © <span id="year"></span> BATA Software. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+const menu = document.getElementById("menu");
+const navlinks = document.getElementById("navlinks");
+
+menu.addEventListener("click", () => {
+  const opened = navlinks.classList.toggle("open");
+  menu.setAttribute("aria-expanded", opened);
+});
+
+document.querySelectorAll("#navlinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    navlinks.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
